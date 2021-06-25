@@ -21,7 +21,7 @@ export default function SearchEngineOptimization(props) {
       title={
         seo_title
           ? seo_title
-          : "IntoProfits - Grow Quickly & Predictably using 2 Simple Systems"
+          : "PoweredByPen - Ash x Grntx"
       }
       description={
         seo_meta_description
@@ -37,8 +37,8 @@ export default function SearchEngineOptimization(props) {
         site_name
       }}
       twitter={{
-        handle:"@DanielAudunsson",
-        site:"@DanielAudunsson"
+        handle:"@poweredbypen",
+        site:"@poweredbypen"
       }}
     />
   );

@@ -40,9 +40,7 @@ export default function Post(res) {
               <h1 className="text-black block text-2xl leading-snug mb-3 md:text-2xl md:font-medium">{post?.data?.title?.[0]?.text}</h1>
               <p className="text-sm mb-2">Daniel Audunsson</p>
               <div className="mb-3">
-                <FacebookProvider appId="153590798408172">
-                  <Like href={`https://intoprofits.com/channel/${post?.uid}/`} colorScheme="dark" showFaces share />
-                </FacebookProvider>
+
               </div>
 
               {!post?.data?.youtube_link?.html ?
@@ -77,11 +75,6 @@ export default function Post(res) {
                 </div>
               }
 
-              <div className="mt-10">
-                <FacebookProvider appId="153590798408172">
-                  <Comments width="100%" href={`https://intoprofits.com/channel/${post?.uid}/`} />
-                </FacebookProvider>
-              </div>
 
             </>
           :

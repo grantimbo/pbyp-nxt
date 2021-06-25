@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import SideBar from '../../components/SideBar'
-import { getList } from '../../support/prismic'
-import { RichText } from 'prismic-reactjs'
-import { FacebookProvider, CommentsCount } from 'react-facebook'
+import Sidebar from '../../components/Sidebar'
+import { getProjects } from '../../support/prismic'
 import Seo from "../../components/Seo"
 const Channel = (res) => {
-  const [showPosts, setShowPosts] = useState(10)
-  const loadMorePosts = () => {
-    setShowPosts(showPosts+10)
-  }
+  console.log(res.response)
+  
   const {results} = res.response
-  const posts = results.sort((a, b) => {
-    var dateA = new Date(a.data.date_published), dateB = new Date(b.data.date_published)
+  const initialPosts = results.sort((a, b) => {
+    var dateA = new Date(a.data.date), dateB = new Date(b.data.date)
     return dateB - dateA;
   })
-  const initialPosts = posts.slice(0, showPosts)
+
+  console.log(initialPosts)
   return (
     <>
       <Seo
@@ -31,11 +25,19 @@ const Channel = (res) => {
         og_url={results[0]?.data?.og_url?.[0]?.text}
         og_site_name={results[0]?.data?.og_site_name?.[0]?.text}
       />
-      <Header/> 
-      <section className="portfolio portfolio-wrap">
-        <div className="portfolio-contents"></div>
-        <div className="portfolio-loading">
-          <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <Sidebar/> 
+      <section className="portfolio portfolio-wrap active">
+        <div className="portfolio-contents">
+        {initialPosts.map((post, i) => ( 
+          <figure className="project-thumb" key={i}>
+            <div className="project-thumb-wrap">
+              <p>{post?.data?.title?.[0]?.text}</p>
+              <a href={`/projects/`} className="post-link">
+                <img src={post?.data?.thumbnail?.url} />
+              </a>
+            </div>
+          </figure>
+        ))}
         </div>
       </section>
 
@@ -54,7 +56,7 @@ const Channel = (res) => {
   )
 }
 export async function getServerSideProps() {
-  const response = await getList("channel")
+  const response = await getProjects("projects")
 
   return {
     props: {response},
