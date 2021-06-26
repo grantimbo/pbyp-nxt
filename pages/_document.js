@@ -13,10 +13,8 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/imgs/favicon.png" />
         </Head>
         <body className="bg-bluegray font-sans">
-          <main className="wrap" role="main">
-            <Main />
-            <NextScript />
-          </main>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )

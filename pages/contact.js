@@ -1,6 +1,7 @@
+import Sidebar from '../components/Sidebar'
+import Wrapper from '../components/Wrapper'
 import Seo from "../components/Seo"
 import React, { useState, useEffect } from 'react'
-import Sidebar from '../components/Sidebar'
 import { getPage} from '../support/prismic'
 import { RichText } from 'prismic-reactjs'
 
@@ -29,13 +30,15 @@ export default function Contact(res) {
         og_url={contents?.og_url?.[0]?.text}
         og_site_name={contents?.og_site_name?.[0]?.text}
       />
-      <Sidebar/> 
-      <section className={`${active == true ? 'active' : ''} contact contact-wrap`} >
-        <div className="contact-content">
-          <RichText render={contents.content}/>
-        </div>
-        <div className="pbyplogo"></div>
-      </section>
+      <Sidebar/>
+      <Wrapper>
+        <section className={`${active == true ? 'active' : ''} contact contact-wrap`} >
+          <div className="contact-content">
+            <RichText render={contents.content}/>
+          </div>
+          <div className="pbyplogo"></div>
+        </section>
+      </Wrapper>
     </>
   )
 }

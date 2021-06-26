@@ -1,4 +1,5 @@
 import Sidebar from '../components/Sidebar'
+import Wrapper from '../components/Wrapper'
 import React, { useState, useEffect } from 'react'
 import { getPage} from '../support/prismic'
 import { RichText } from 'prismic-reactjs'
@@ -29,14 +30,17 @@ export default function About(res) {
         og_url={contents?.og_url?.[0]?.text}
         og_site_name={contents?.og_site_name?.[0]?.text}
       />
-      <Sidebar/> 
-      <section className={`${active == true ? 'active' : ''} about about-wrap`} >
-        <div className="ash"></div>
-        <div className="grntx"></div>
-        <div className="about-content">
-          <RichText render={contents?.content} />
-        </div>
-      </section>
+      <Sidebar/>
+      <Wrapper>
+        <section className={`${active == true ? 'active' : ''} about about-wrap`} >
+          <div className="ash"></div>
+          <div className="grntx"></div>
+          <div className="about-content">
+            <h2>{contents?.title?.[0]?.text}</h2>
+            <RichText render={contents?.content} />
+          </div>
+        </section>
+      </Wrapper>
     </>
   )
 }

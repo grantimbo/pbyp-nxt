@@ -1,10 +1,8 @@
-import Header from '../../components/Header'
+import Sidebar from '../../components/Sidebar'
 import { getPost } from '../../support/prismic'
 import { RichText } from 'prismic-reactjs'
 import React, { useState } from 'react'
-import Footer from '../../components/Footer'
 import SideBar from '../../components/SideBar'
-import { FacebookProvider, Comments, Like } from 'react-facebook'
 import Seo from "../../components/Seo"
 
 export default function Post(res) {
@@ -32,7 +30,7 @@ export default function Post(res) {
         og_url={post?.data?.og_url?.[0]?.text}
         og_site_name={post?.data?.og_site_name?.[0]?.text}
       />
-      <Header/>
+      <Sidebar/>
       <main className="px-4 md:py-10 md:grid md:gap-10 md:grid-cols-channel lg:container lg:mx-auto lg:px-4 ">
         <article className="py-10 lg:py-0">
           {post ?

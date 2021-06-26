@@ -1,6 +1,6 @@
-import Sidebar from "../components/Sidebar";
-import Link from "next/link";
-import { getPage } from "../support/prismic";
+import Sidebar from '../components/Sidebar'
+import Wrapper from '../components/Wrapper'
+import { getPage } from "../support/prismic"
 import Seo from "../components/Seo"
 
 
@@ -43,21 +43,21 @@ export default function Home(res) {
         og_site_name={contents?.og_site_name?.[0]?.text}
       />
       <Sidebar/>
-
-      <section className="home-wrap home active">
+      <Wrapper>
+        <section className="home-wrap home active">
           <div className="home-content">
-              <div className="slide-controls">
-                  <a className="prev-slide" onClick={() => sliderControls('prev')}><i className="icon-navigate_before"></i></a>
-                  <a className="next-slide" onClick={sliderControls}><i className="icon-navigate_next"></i></a>
-              </div>
-              <div className="slides">
-                {contents.slideshow.map((post, i) => (
-                  <div className={`slider-container ${i == 0 ? 'active' : ''}`} key={i} style={{backgroundImage: `url(${post.image.url})`}}/>
-                ))}
-              </div>
+            <div className="slide-controls">
+                <a className="prev-slide" onClick={() => sliderControls('prev')}><i className="icon-navigate_before"></i></a>
+                <a className="next-slide" onClick={sliderControls}><i className="icon-navigate_next"></i></a>
+            </div>
+            <div className="slides">
+              {contents.slideshow.map((post, i) => (
+                <div className={`slider-container ${i == 0 ? 'active' : ''}`} key={i} style={{backgroundImage: `url(${post.image.url})`}}/>
+              ))}
+            </div>
           </div>
-      </section>
-
+        </section>
+      </Wrapper>
     </>
   );
 }

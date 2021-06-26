@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import { useState } from 'react'
 
 const SideBar = () => {
+
+    const [menu, setmenu] = useState(false)
 
   return(
     <aside className="sidebar">
@@ -11,9 +14,15 @@ const SideBar = () => {
         </Link>
         <p className="tagline">Ash <span>X</span> Grant</p>
 
-        <div className="menu-button"><i className="icon-dehaze"></i></div>
-        <div className="mobile-menu">
-            <div className="menu-button-close"><i className="icon-close"></i></div>
+        <div className="menu-button" onClick={() => setmenu(!menu)}>
+            <i className="icon-dehaze"></i>
+        </div>
+
+        <div className={`${menu == true ? 'open' : 'close'} mobile-menu`}>
+            <div className="menu-button-close"  onClick={() => setmenu(!menu)}>
+							<i className="icon-close"></i>
+						</div>
+						
             <nav className="nav">
                 <ul>
                     <li><Link href="/projects"><a data-nav="portfolio">Projects</a></Link></li>

@@ -383,9 +383,6 @@ figure.project-thumb {
     z-index: 10;
     overflow-x: hidden;
     overflow-y: scroll;
-    display: none;
-}
-#modal.active {
     display: block;
 }
 #modal .project-nav {
@@ -394,7 +391,7 @@ figure.project-thumb {
 #modal .portfolio-content {
 	margin: 0 auto;
 }
-#modal a.close-modal {
+#modal .close-modal {
     font-size: 50px;
     position: fixed;
     color: #fff;
@@ -420,12 +417,12 @@ figure.project-thumb {
 
 
 /* 404 */
-body.error404 {
+.page-404 {
     height: 100vh;
     align-items: center;
     display: flex;
 }
-body.error404 main {
+.page-404 section {
     text-align: center;
     margin: 0 auto;
 }

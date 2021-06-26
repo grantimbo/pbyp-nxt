@@ -21,12 +21,12 @@ export default function SearchEngineOptimization(props) {
       title={
         seo_title
           ? seo_title
-          : "PoweredByPen - Ash x Grntx"
+          : "Powered by Pen — ASH x GRANT"
       }
       description={
         seo_meta_description
           ? seo_meta_description
-          : "Grow Quickly & Predictably Using 2 Simple Systems"
+          : "Powered by Pen is an art and design studio that provides concept design, illustration, 3D modeling, product design, graphic design, logo and branding services.We pride ourselves on providing superior quality work, client satisfaction, and outstanding art and design services for our clients throughout the years of service."
       }
       openGraph={{
         type,
@@ -35,10 +35,6 @@ export default function SearchEngineOptimization(props) {
         images,
         url,
         site_name
-      }}
-      twitter={{
-        handle:"@poweredbypen",
-        site:"@poweredbypen"
       }}
     />
   );

@@ -1,20 +1,26 @@
 import Head from 'next/head'
-import { getList } from '../support/prismic'
-import React, { useState, useEffect } from 'react'
-import ReactGA from 'react-ga'
+import Link from "next/link";
 
-const Error = ({ statusCode, response }) => {
+const Error = () => {
 
   return (
     <>
       <Head><title>404 - Powered by Pen</title></Head>
-      <section className="404">
-        <a className="logo-404"  href="/">
-          <img src="/imgs/logo.png" alt="Powered by Pen"/>
-        </a>
-        <h1>Apologies</h1>
-        <p>The page you are looking for does not exist. <br/>It may have been moved, or removed altogether. <br/>You may return to the <a color="#ccc" href="<?php echo home_url(); ?>">Home</a></p>
-      </section>
+      <main className="page-404">
+        <section>
+          <Link href="/">
+            <a className="logo-404"  >
+              <img src="/imgs/logo.png" alt="Powered by Pen"/>
+            </a>
+          </Link>
+          <h1>Apologies</h1>
+          <p>
+            The page you are looking for does not exist.<br/>
+            It may have been moved, or removed altogether.<br/>
+            You may return to the <Link href="/"><a >Home</a></Link>
+          </p>
+        </section>
+      </main>
     </>
   )
 }
