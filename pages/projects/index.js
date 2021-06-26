@@ -1,9 +1,8 @@
 import Sidebar from '../../components/Sidebar'
 import Wrapper from '../../components/Wrapper'
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react'
 import { getProjects } from '../../support/prismic'
-import Seo from "../../components/Seo"
+import Seo from '../../components/Seo'
 import { RichText } from 'prismic-reactjs'
 
 const Projects = (res) => {
@@ -51,7 +50,7 @@ const Projects = (res) => {
             <figure className="project-thumb" key={i}>
               <div className="project-thumb-wrap">
                 <p>{post?.data?.title?.[0]?.text}</p>
-                <a href={`/projects/${post.slugs[0]}`} onClick={showModal} projectid={post.id} className="post-link">
+                <a href={`/projects/${post.id}`} onClick={showModal} projectid={post.id} className="post-link">
                   <img src={post?.data?.thumbnail?.url} />
                 </a>
               </div>
