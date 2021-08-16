@@ -11,6 +11,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="shortcut icon" href="/imgs/favicon.png" />
+          <title>Coming Soon</title>
         </Head>
         <body>
           <Main />
