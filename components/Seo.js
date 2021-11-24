@@ -13,16 +13,13 @@ export default function SearchEngineOptimization(props) {
   } = props;
   let images = [
     {
-      url: image
-    }
-  ]
+      url: image,
+    },
+  ];
+
   return (
     <NextSeo
-      title={
-        seo_title
-          ? seo_title
-          : "Powered by Pen — ASH x GRANT"
-      }
+      title={seo_title ? seo_title : "Powered by Pen — ASH x GRANT"}
       description={
         seo_meta_description
           ? seo_meta_description
@@ -34,7 +31,7 @@ export default function SearchEngineOptimization(props) {
         description,
         images,
         url,
-        site_name
+        site_name,
       }}
     />
   );
