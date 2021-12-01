@@ -4,19 +4,32 @@ import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Header from "./Header";
-
-const images = [
-  "/imgs/slide1.png",
-  "/imgs/slide2.png",
-  "/imgs/slide3.png",
-  "/imgs/slide4.png",
-];
+import { useContext } from "react";
+import { UserContext } from "../support/context";
+import Image from "next/image";
+import spinner from "../public/icons/loader.svg";
 
 const Featured = () => {
   const [loaded, setLoaded] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = useRef();
+  const ctx = useContext(UserContext);
+  const { contents } = ctx;
+  const [images, setImages] = useState([]);
+
+  useEffect(
+    () => {
+      if (!contents) return;
+      const tmpArr = [];
+      contents?.slideshow?.forEach((e) => {
+        tmpArr.push(e.image.url);
+      });
+      setImages(tmpArr);
+    },
+    [contents],
+    []
+  );
 
   const [sliderRef, slider] = useKeenSlider({
     animationEnded(s) {
@@ -60,33 +73,41 @@ const Featured = () => {
   return (
     <section className=" bg-black text-white relative">
       <Header additionalClasses="absolute w-full" />
-      <div className="absolute w-full h-full center-item">
-        <div className="z-10 px-10 relative lg:w-3/4 xl:w-5/12 text-center">
-          <h1 className="text-5xl mb-1 font-medium">We are PoweredbyPen</h1>
-          <p className="text-gray-300 text-2xl font-light mb-6">
-            Powered by Pen is a design studio from the Philippines that provides
-            superior quality Art and Design services.
-            {/* {`We pride ourselves on providing superior quality work, client satisfaction, and outstanding art and design services for our clients throughout the years of service.`} */}
-          </p>
-          <Button
-            text={`Say Hello 👋`}
-            onClick={() => {
-              document.getElementById("footer").scrollIntoView();
-            }}
-          />
-          {/* </a> */}
-        </div>
-      </div>
-      <div
-        ref={sliderRef}
-        className="keen-slider h-[90vh] cursor-move opacity-50"
-      >
-        {images.map((src, idx) => (
-          <div key={idx} className="keen-slider__slide lazy__slide">
-            <img src={loaded[idx] ? src : ""} />
+      {contents && images.length != 0 ? (
+        <>
+          <div className="absolute w-full h-full center-item">
+            <div className="z-10 px-10 relative lg:w-3/4 xl:w-5/12 text-center">
+              <h1 className="text-5xl mb-1 font-medium">
+                {contents?.main_title?.[0]?.text}
+              </h1>
+              <p className="text-gray-300 text-2xl font-light mb-6">
+                {contents?.sub_title?.[0]?.text}
+              </p>
+              <Button
+                text={`Say Hello 👋`}
+                onClick={() => {
+                  document.getElementById("footer").scrollIntoView();
+                }}
+              />
+            </div>
           </div>
-        ))}
-      </div>
+
+          <div
+            ref={sliderRef}
+            className="keen-slider h-[90vh] cursor-move opacity-50"
+          >
+            {images.map((src, idx) => (
+              <div key={idx} className="keen-slider__slide lazy__slide">
+                <img src={loaded[idx] ? src : ""} />
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="h-[90vh] flex items-center justify-center">
+          <Image src={spinner} width={70} height={70} alt="loading..." />
+        </div>
+      )}
     </section>
   );
 };

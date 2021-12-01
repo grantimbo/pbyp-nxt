@@ -2,16 +2,17 @@ import React from "react";
 import Image from "next/image";
 import spinner from "../public/icons/loader.svg";
 import Link from "next/link";
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "../support/context";
 
-const Projects = () => {
-  const [projects = [], setProjects] = useContext(UserContext);
+const Projects = ({ title = "Case Studies" }) => {
+  const ctx = useContext(UserContext);
+  const { projects = [] } = ctx;
 
   return (
     <section className="bg-black text-white" id="projects">
       <div className="container px-4 py-16 lg:py-24 mx-auto text-center">
-        <h1 className="title-type">{`Case Studies`}</h1>
+        <h1 className="title-type">{title}</h1>
         {projects?.length === 0 ? (
           <div className="w-full h-[40vh] flex items-center justify-center">
             <Image src={spinner} width={70} height={70} alt="loading..." />
