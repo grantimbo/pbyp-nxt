@@ -2,9 +2,13 @@ import Image from "next/image";
 import IGicon from "../public/icons/instagram.svg";
 import FBicon from "../public/icons/facebook.svg";
 
-const SocialIcons = () => {
+const SocialIcons = ({ size }) => {
   return (
-    <div className="flex items-center justify-center space-x-4 p-8">
+    <div
+      className={`flex items-center justify-center space-x-4  relative z-10 ${
+        size == "small" ? "p-2" : "p-8"
+      }`}
+    >
       <a href="https://www.instagram.com/wearepoweredbypen" target="_blank">
         <Image
           src={IGicon}

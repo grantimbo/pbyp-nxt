@@ -59,15 +59,15 @@ const Featured = () => {
 
   return (
     <section className=" bg-black text-white relative">
-      <Header />
+      <Header additionalClasses="absolute w-full" />
       <div className="absolute w-full h-full center-item">
-        <div className="z-10 px-10 relative lg:w-1/2 xl:w-5/12 text-center">
+        <div className="z-10 px-10 relative lg:w-3/4 xl:w-5/12 text-center">
           <h1 className="text-5xl mb-1 font-medium">We are PoweredbyPen</h1>
           <p className="text-gray-300 text-2xl font-light mb-6">
-            We are a dou artist from the Philippines who are collaborating to
-            provide quality Art and Design solutions.
+            Powered by Pen is a design studio from the Philippines that provides
+            superior quality Art and Design services.
+            {/* {`We pride ourselves on providing superior quality work, client satisfaction, and outstanding art and design services for our clients throughout the years of service.`} */}
           </p>
-          {/* <a href="#footer"> */}
           <Button
             text={`Say Hello 👋`}
             onClick={() => {

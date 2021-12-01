@@ -9,6 +9,7 @@ const UserContextComponent = ({ children }) => {
   const fetchProjects = async () => {
     const res = await getProjects("projects");
     setProjects([res.results]);
+    console.log([res.results]);
   };
 
   useEffect(() => {

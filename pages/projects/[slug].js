@@ -2,6 +2,8 @@ import { useEffect, useContext, useState } from "react";
 import { UserContext } from "../../support/context";
 import { useRouter } from "next/dist/client/router";
 import { RichText } from "prismic-reactjs";
+import Header from "../../components/Header";
+import Head from "next/head";
 
 const Project = () => {
   const [projects = [], setProjects] = useContext(UserContext);
@@ -13,14 +15,19 @@ const Project = () => {
       const prj = projects.find(
         (element) => element?.slugs?.[0] === route?.query?.slug
       );
-      prj ? setContent(prj) : route.push("/notfound");
+      prj ? setContent(prj) : route.push("/not-found");
     }
   }, [projects]);
 
   return (
     <>
-      <h1>h3ll-</h1>
-      <RichText render={content?.data?.content} />
+      <Head>
+        <title>{`Powered by Pen — ${content?.data?.title?.[0]?.text}`}</title>
+      </Head>
+      <Header additionalClasses="" logoSize="small" showMenus={true} />
+      <section className="p-4 flex flex-col space-y-6 items-center">
+        <RichText render={content?.data?.content} />
+      </section>
     </>
   );
 };

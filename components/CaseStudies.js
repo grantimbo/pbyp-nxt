@@ -20,12 +20,9 @@ const Projects = () => {
           <>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-10 lg:grid-cols-3">
               {projects?.map((e) => (
-                <Link href={`/projects/${e?.slugs?.[0]}`}>
+                <Link href={`/projects/${e?.slugs?.[0]}`} key={e?.id}>
                   <a>
-                    <div
-                      key={e.id}
-                      className=" rounded-md hover:shadow-xl h-[300px] bg-[#080808] relative object-cover overflow-hidden"
-                    >
+                    <div className=" rounded-md hover:shadow-xl h-[300px] bg-[#080808] relative object-cover overflow-hidden">
                       <img
                         src={e?.data?.thumbnail?.url}
                         width={e?.data?.dimensions?.width}
