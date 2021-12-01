@@ -25,7 +25,7 @@ const ScrollTop = () => {
       onClick={() => window.scrollTo(0, 0)}
       className={`${
         scrollTopButton ? "opacity-1" : "opacity-0"
-      } transition-opacity fixed text-black w-14 h-14 rounded flex items-center justify-center bg-gray-50 bottom-14 right-14 shadow-xl cursor-pointer hover:bg-intoprofits-blue z-50`}
+      } transition-opacity fixed text-black w-14 h-14 rounded flex items-center justify-center bg-gray-50 shadow-xl cursor-pointer hover:bg-intoprofits-blue z-50 bottom-4 right-4 md:bottom-14 md:right-14 `}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

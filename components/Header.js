@@ -34,15 +34,15 @@ const Header = (props) => {
           </Link>
         </div>
         {showMenus && (
-          <div className="center-item space-x-4">
+          <div className="space-x-4 md:flex items-center justify-center hidden">
             <Link href="/">
               <a className="py-2 px-5 bg-white font-medium rounded-md text-lg text-black">
-                🏠 Home
+                Home
               </a>
             </Link>
             <Link href="/projects">
               <a className="py-2 px-5 bg-white font-medium rounded-md text-lg text-black">
-                🎨 Projects
+                Projects
               </a>
             </Link>
           </div>

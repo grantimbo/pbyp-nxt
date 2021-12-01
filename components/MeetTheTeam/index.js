@@ -13,10 +13,10 @@ const Team = () => {
     <section>
       <div className="container px-4 py-16 lg:py-24 mx-auto text-center">
         <h1 className="title-type">{contents?.team_title?.[0]?.text}</h1>
-        <div className="grid grid-cols-2 max-w-screen-lg container mx-auto mt-32">
+        <div className="grid grid-cols-2 max-w-screen-lg container mx-auto md:mt-32">
           <div className="center-item">
             <div className="center-item flex-col">
-              <div className="rounded-full bg-gray-light w-[200px] h-[200px] md:w-[260px] md:h-[260px]">
+              <div className="rounded-full bg-gray-light w-[150px] h-[150px] md:w-[260px] md:h-[260px]">
                 <img
                   className="object-cover"
                   src={contents?.asher?.url}
@@ -27,10 +27,10 @@ const Team = () => {
                   layout="responsive"
                 />
               </div>
-              <h1 className="text-2xl mb-1 font-medium mt-10">
+              <h1 className="text-xl mb-1 font-medium mt-10 md:text-2xl">
                 Asher Ben Alpay
               </h1>
-              <p className="text-gray-500 text-xl font-light mb-6">
+              <p className="text-gray-500 md:text-xl font-light mb-6">
                 {contents?.asher_title?.[0]?.text}
               </p>
 
@@ -39,7 +39,7 @@ const Team = () => {
           </div>
           <div className="center-item">
             <div className="center-item flex-col">
-              <div className="rounded-full bg-gray-light w-[200px] h-[200px] md:w-[260px] md:h-[260px]">
+              <div className="rounded-full bg-gray-light w-[150px] h-[150px] md:w-[260px] md:h-[260px]">
                 <img
                   className="object-cover"
                   src={contents?.grant?.url}
@@ -50,8 +50,10 @@ const Team = () => {
                   layout="responsive"
                 />
               </div>
-              <h1 className="text-2xl mb-1 font-medium mt-10">Grant Imbo</h1>
-              <p className="text-gray-500 text-xl font-light mb-6">
+              <h1 className="text-xl mb-1 font-medium mt-10 md:text-2xl">
+                Grant Imbo
+              </h1>
+              <p className="text-gray-500 md:text-xl font-light mb-6">
                 {contents?.grant_title?.[0]?.text}
               </p>
               <GrantSocial />

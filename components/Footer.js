@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="bg-[#080808]" id="footer">
       <div className="container px-4 pt-24 pb-10 mx-auto text-center">
         <h1 className="title-type">{contents?.footer?.[0]?.text}</h1>
-        <div className="text-2xl md:text-4xl bg-white px-6 pt-3 pb-5 inline-block text-black rounded-md">
+        <div className="text-xl md:text-4xl bg-white px-6 pt-3 pb-5 inline-block text-black rounded-md">
           {`📧 : ${contents?.email?.[0]?.text}`}
         </div>
 
