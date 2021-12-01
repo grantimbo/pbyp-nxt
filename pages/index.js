@@ -1,32 +1,33 @@
-import { getPage } from "../support/prismic";
 import Seo from "../components/Seo";
-import Header from "../components/Header";
 import Featured from "../components/Featured";
-import Projects from "../components/Projects";
-import Team from "../components/Team";
-import GetQoute from "../components/GetQoute";
+import Projects from "../components/CaseStudies";
+import Services from "../components/WhatWeDo";
+import MeetTheTeam from "../components/MeetTheTeam";
+import ScrollTop from "../components/ScrollTop";
 import Footer from "../components/Footer";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../support/context";
 
-export default function Home(res) {
-  const contents = res.response.results[0].data;
-  console.log(contents.slideshow);
+export default function Home() {
+  // const contents = res.response.results[0].data;
+  // console.log(contents.slideshow);
 
   return (
     <>
       <Seo />
-      <Header />
       <Featured />
+      <Services />
       <Projects />
-      <Team />
-      <GetQoute />
+      <MeetTheTeam />
       <Footer />
+      <ScrollTop />
     </>
   );
 }
 
-export async function getServerSideProps() {
-  const response = await getPage("YNX4NBIAACoATUBy");
-  return {
-    props: { response },
-  };
-}
+// export async function getServerSideProps() {
+//   const response = await getPage("YNX4NBIAACoATUBy");
+//   return {
+//     props: { response },
+//   };
+// }

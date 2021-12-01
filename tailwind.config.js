@@ -11,9 +11,10 @@ module.exports = {
         xl: "1280px",
       },
     },
+
     fontFamily: {
       sans: [
-        "Roboto",
+        "Outfit",
         "ui-sans-serif",
         "system-ui",
         "-apple-system",
@@ -26,9 +27,16 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
     },
+
+    extend: {
+      colors: {
+        gray: {
+          light: "#0e0e0e",
+          dark: "#090909",
+        },
+      },
+    },
   },
-  variants: {
-    extend: {},
-  },
+  variants: {},
   plugins: [],
 };
