@@ -32,7 +32,7 @@ const Project = () => {
       {content?.data?.content ? (
         <section className="p-4 py-10 container mx-auto">
           <h1 className="title-type">{content?.data?.title?.[0]?.text}</h1>
-          <section className="flex flex-col space-y-6 items-center">
+          <section id="content">
             <RichText render={content?.data?.content} />
           </section>
         </section>

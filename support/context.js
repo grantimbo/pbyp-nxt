@@ -9,7 +9,12 @@ const UserContextComponent = ({ children }) => {
 
   const fetchProjects = async () => {
     const res = await getProjects("projects");
-    setProjects([res.results]);
+    const sortDate = res.results?.sort((a, b) => {
+      let dateA = new Date(a.data.date),
+        dateB = new Date(b.data.date);
+      return dateB - dateA;
+    });
+    setProjects([sortDate]);
   };
 
   const fetchContent = async () => {

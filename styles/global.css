@@ -37,3 +37,51 @@
   position: absolute;
 }
 }
+
+.embed {
+  /* Then style the iframe to fit in the container div with full height and width */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  background: #000;
+  margin-bottom: 1.2rem;
+}
+
+.embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #content h1,
+  #content h2,
+  #content h3,
+  #content h4,
+  #content h5,
+  #content h6,
+  #content b {
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+  }
+
+  #content h1 { font-size: 2.5rem;}
+  #content h2 { font-size: 2.3rem;}
+  #content h3 { font-size: 2rem;}
+  #content h4 { font-size: 1.8rem;}
+  #content h5 { font-size: 1.6rem;}
+  .content h6 { font-size: 1.4rem;}
+
+  #content p {
+    @apply font-light text-lg mb-4 text-gray-300
+  }
+
+  #content p.block-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
